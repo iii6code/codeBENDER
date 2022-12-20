@@ -90,6 +90,62 @@ mterms.addEventListener("click", openTerms);
 mimprint.addEventListener("click", openImprint);
 logo.addEventListener("click", openLanding);
 
+// // // // // //
+
+const files = document.getElementById("files");
+const settings = document.getElementById("settings");
+const tools = document.getElementById("tools");
+const subs = document.getElementById("sublinks");
+const subfiles = document.getElementById("subfiles");
+const subsettings = document.getElementById("subsettings");
+const subtools = document.getElementById("subtools");
+const openSub = (e) => {
+  console.log(e.target.id);
+  subs.style.display = "grid";
+  if (e.target.id === "files") subfiles.style.display = "grid";
+  if (e.target.id === "settings") subsettings.style.display = "grid";
+  if (e.target.id === "tools") subtools.style.display = "grid";
+};
+const closeSub = (e) => {
+  if (e.target.id === "files") {
+    console.log("close", e.target.id);
+    // subs.style.display = "none";
+    subsettings.style.display = "none";
+    subtools.style.display = "none";
+  } else if (e.target.id === "settings") {
+    console.log("close", e.target.id);
+    // subs.style.display = "none";
+    subfiles.style.display = "none";
+    subtools.style.display = "none";
+  } else if (e.target.id === "tools") {
+    console.log("close", e.target.id);
+    // subs.style.display = "none";
+    subfiles.style.display = "none";
+    subsettings.style.display = "none";
+  } else {
+    console.log("close", e.target.id);
+    subs.style.display = "none";
+    subfiles.style.display = "none";
+    subsettings.style.display = "none";
+    subtools.style.display = "none";
+  }
+};
+files.addEventListener("mouseover", openSub);
+settings.addEventListener("mouseover", openSub);
+tools.addEventListener("mouseover", openSub);
+subfiles.addEventListener("mouseover", openSub);
+subsettings.addEventListener("mouseover", openSub);
+subtools.addEventListener("mouseover", openSub);
+
+files.addEventListener("mouseleave", closeSub);
+settings.addEventListener("mouseleave", closeSub);
+tools.addEventListener("mouseleave", closeSub);
+subfiles.addEventListener("mouseleave", closeSub);
+subsettings.addEventListener("mouseleave", closeSub);
+subtools.addEventListener("mouseleave", closeSub);
+
+// // // // /// // / /
+
 const provider = new ethers.providers.Web3Provider(window.ethereum);
 if (!ethereum.isConnected()) {
   // alert("install https://metamask.io extension to browser");
